@@ -1,0 +1,17 @@
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
+# Impedir que se pueda ver el listado de contenidos de un directorio
+
+# Header set Access-Control-Allow-Origin "artstyloweb.com"
+
+Options All -Indexes
+
+# Url Amigables
+
+RewriteEngine On
+
+RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?ruta=$1

@@ -1,0 +1,19 @@
+    <IfModule mod_headers.c>
+    <IfModule mod_rewrite.c>
+        SetEnvIf Origin "http(s)?://(.+\.)?artstyloweb\.com(:\d{1,5})?$" CORS=$0
+        Header set Access-Control-Allow-Origin "%{CORS}e" env=CORS
+        Header merge  Vary "Origin"
+    </IfModule>
+    </IfModule>
+
+# Impedir que se pueda ver el listado de contenidos de un directorio
+
+# Header set Access-Control-Allow-Origin "artstyloweb.com"
+
+Options All -Indexes
+
+# Url Amigables
+
+RewriteEngine On
+
+RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?ruta=$1
